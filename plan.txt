@@ -1,0 +1,42 @@
+1. Set up & Install app:
+- npm install
+- npm run dev 
+- set up helmet 
+- create database on render 
+- assign port on .env 
+- rename env 
+- add db connection string from render 
+- check db connection - rewrite simple route handler 
+
+2. Plan and design your database schema (You should have a minimum of 2 tables that are linked with a primary and foreign key)
+- use chatbot to design egg theme - use initialisation script to ask bot to create ERD diagram with mermaid 
+- use chatbot to create eggy seed data 
+
+
+3. Write a database initialisation script. Create a SQL script that will:
+
+    a) Drop any existing tables (if they exist)
+    npm reset database 
+    b) Recreate all the tables based on the schema
+
+    c) Populate the tables with some initial seed data
+    
+
+
+4. Plan out your API routes and resources. Create your requirements tables similar to the one above.
+    i Specify end point of handlers 
+    ii Add response status & responses eg success, payload 
+    iii call helper functions 
+4a. Writing helper functions 
+    i exporting / importing the functions 
+    ii writing query text - the SQL 
+    iii connecting SQL + requests code 
+    iv using pool to connect to database 
+    v return db result to api handler 
+
+5. Set up a basic Express server with a test route, logging middleware and nodemon.
+
+6. Implement CRUD operations using the pg package to interact with your database.
+
+7. Test the API using tools like Postman or Thunder Client.
+
