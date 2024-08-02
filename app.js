@@ -2,14 +2,13 @@
 import express from "express";
 
 // Import your helper functions for your first resource here
-// import {
-//   getResourceOne,
+import {
+  getAllFarmers,
 //   getResourceOneById,
 //   createResourceOne,
 //   updateResourceOneById,
 //   deleteResourceOneById,
-// } from "./resource_one.js";
-
+} from "./farmers.js";
 
 // Import your helper functions for your second resource here
 // import {
@@ -19,7 +18,6 @@ import express from "express";
 //   updateResourceTwoById,
 //   deleteResourceTwoById,
 // } from "./resource_two.js";
-
 
 // Initialize the express app
 const app = express();
@@ -32,17 +30,27 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 import helmet from 'helmet'
 app.use(helmet())
 
+// //test
+// app.get("/egg/", async function (req, res) {
+//   console.log("Eggtastic");
+//   res.status(200).send("You've be sent an e-egg");
+// });
 
-// Resource One Route Handlers
+// Farmer Handlers
 
-// Endpoint to retrieve all <resource_one>
-app.get("/resourceone/", async function (req, res) {
-    console.log("I'm alive");
-    res.status(200).send("I'm alive!");
+// Endpoint to retrieve all farmers
+app.get("/egg/farmers", async function (req, res) {
+  const allFarmerData = await getAllFarmers()
+  res.status(200).json({
+  status: "eggcelent",
+  data: allFarmerData
+})
 });
 
 // Endpoint to retrieve a <resource_one> by id
-app.get("/resourceone/:id", async function (req, res) {
+app.get("/egg/farmers/:id", async function (req, res) {
+  const singleFarmerData = await getSingleFarmer()
+  res.status
 });
 
 // Endpoint to create a new <resource_one>

@@ -16,22 +16,22 @@
 
 3. Write a database initialisation script. Create a SQL script that will:
 - transfer egg theme to database script 
-- npm reset database 
+- npm run reset database 
     a) Drop any existing tables (if they exist)
     b) Recreate all the tables based on the schema
     c) Populate the tables with some initial seed data
 
 5. Set up a basic Express server with a test route, logging middleware and nodemon.
--rename endpoints
-- rename helper file and functions
-- test
+
+-- rename everything
 
 4. Plan out your API routes and resources. Create your requirements tables similar to the one above.
-    i Specify end point of handlers 
-    ii Add response status & responses eg success, payload 
-    iii call helper functions 
-
+    i Specify end point of handlers
+    ii call helper functions 
+    ii1 Add response status & responses eg success, payload 
+    
 6. Implement CRUD operations using the pg package to interact with your database.
+
 4a. Writing helper functions 
     i exporting / importing the functions 
     ii writing query text - the SQL 

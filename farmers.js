@@ -2,8 +2,10 @@
 // Import the 'pool' object so our helper functions can interact with the PostgreSQL database
 import { pool } from "./db/index.js";
 
-export async function getResourceOne() {
-  // Query the database and return all resource ones
+export async function getAllFarmers() {
+  const eggQueryText = "SELECT * FROM farmers"
+  const eggResult = await pool.query(eggQueryText)
+  return eggResult.rows
 }
 
 export async function getResourceOneById(id) {

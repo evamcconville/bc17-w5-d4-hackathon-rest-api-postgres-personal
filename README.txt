@@ -1,17 +1,15 @@
 ## How to set up this eggy program:
-
-# Close all terminals
 # In a new teminal execute
 -'npm install'
 
 ## How to run this eggy program:
-
 # Close all terminals
 # In a new terminal execute
 -'npm run egg'
 
-# To reset database and seed database 
-- npm reset database
+## How to reset database and seed database 
+# In a new teminal execute
+-'npm run reset-database'
 
 ## Database information
 
