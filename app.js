@@ -1,8 +1,6 @@
 // Import the required modules
 import express from "express";
 
-
-
 // Import your helper functions for your first resource here
 // import {
 //   getResourceOne,
@@ -23,7 +21,6 @@ import express from "express";
 // } from "./resource_two.js";
 
 
-
 // Initialize the express app
 const app = express();
 // Retrieve the port number from environment variables
@@ -31,7 +28,9 @@ const PORT = process.env.PORT;
 
 app.use(express.json()); // express.json() middleware is used to parse incoming JSON requests
 
-
+//Helment stuff
+import helmet from 'helmet'
+app.use(helmet())
 
 
 // Resource One Route Handlers
