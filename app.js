@@ -40,12 +40,21 @@ app.use(helmet())
 
 // Endpoint to retrieve all farmers
 app.get("/egg/farmers", async function (req, res) {
+  try {
   const allFarmerData = await getAllFarmers()
   res.status(200).json({
   status: "eggcelent",
   data: allFarmerData
+  }
+)} catch (error) {
+  console.log(error);
+  res.status(500).json({
+    status: "badEgg",
+    data: null
+  });
+}
 })
-});
+
 
 // Endpoint to retrieve a <resource_one> by id
 app.get("/egg/farmers/:id", async function (req, res) {
