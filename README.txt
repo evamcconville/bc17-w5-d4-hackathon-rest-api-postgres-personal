@@ -7,8 +7,11 @@
 ## How to run this eggy program:
 
 # Close all terminals
-# In a new teminal execute
+# In a new terminal execute
 -'npm run egg'
+
+# To reset database and seed database 
+- npm reset database
 
 ## Database information
 

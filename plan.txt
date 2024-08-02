@@ -15,7 +15,7 @@
 - use chatbot to create eggy seed data 
 
 3. Write a database initialisation script. Create a SQL script that will:
-- transfer egg theme to database script
+- transfer egg theme to database script 
 - npm reset database 
     a) Drop any existing tables (if they exist)
     b) Recreate all the tables based on the schema
