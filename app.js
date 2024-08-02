@@ -43,23 +43,37 @@ app.get("/egg/farmers", async function (req, res) {
   try {
   const allFarmerData = await getAllFarmers()
   res.status(200).json({
-  status: "eggcelent",
+  status: "eggcellent",
   data: allFarmerData
   }
 )} catch (error) {
   console.log(error);
   res.status(500).json({
-    status: "badEgg",
+    status: "bad egg",
     data: null
   });
 }
 })
 
 
-// Endpoint to retrieve a <resource_one> by id
+// Endpoint to retrieve a farmer by id
 app.get("/egg/farmers/:id", async function (req, res) {
-  const singleFarmerData = await getSingleFarmer()
-  res.status
+  try {
+  const id = req.params.id;
+  console.log(id);
+   // const singleFarmerData = await getSingleFarmer(id)
+  res.status(200).json({
+  status: "eggcellent",
+  data: id
+   // singleFarmerData  
+  })}
+  catch (error) {
+    console.log(error);
+    res.status(500).json({
+    status:"bad egg",
+    data: null
+    })
+  }
 });
 
 // Endpoint to create a new <resource_one>
