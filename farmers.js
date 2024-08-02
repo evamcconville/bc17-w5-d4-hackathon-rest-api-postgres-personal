@@ -8,11 +8,11 @@ export async function getAllFarmers() {
   return eggResult.rows
 }
 
-export async function getSingleFarmer(id) {
+export async function getSingleFarmer(farmerId) {
   // Query the database and return the resource with a matching id or null
   const eggQueryText = "SELECT * FROM farmers WHERE farmer_id = $1"
-  const eggResult = await pool.query(eggQueryText, [id]);
-  return result.rows[0] || null;
+  const eggResult = await pool.query(eggQueryText, [farmerId]);
+  return eggResult.rows[0]
 }
 
 export async function createResourceOne(resource) {

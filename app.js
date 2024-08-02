@@ -41,43 +41,43 @@ app.use(helmet())
 // Endpoint to retrieve all farmers
 app.get("/egg/farmers", async function (req, res) {
   try {
-  const allFarmerData = await getAllFarmers()
-  res.status(200).json({
-  status: "eggcellent",
-  data: allFarmerData
+    const allFarmerData = await getAllFarmers()
+    res.status(200).json({
+      status: "eggcellent",
+      data: allFarmerData
+    }
+    )
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: "bad egg",
+      data: null
+    });
   }
-)} catch (error) {
-  console.log(error);
-  res.status(500).json({
-    status: "bad egg",
-    data: null
-  });
-}
 })
 
 
 // Endpoint to retrieve a farmer by id
 app.get("/egg/farmers/:id", async function (req, res) {
   try {
-  const id = req.params.id;
-  console.log(id);
-   // const singleFarmerData = await getSingleFarmer(id)
-  res.status(200).json({
-  status: "eggcellent",
-  data: id
-   // singleFarmerData  
-  })}
+    const requestedId = req.params.id;
+    const singleFarmerData = await getSingleFarmer(requestedId)
+    res.status(200).json({
+      status: "eggcellent",
+      data: singleFarmerData  
+    })
+  }
   catch (error) {
     console.log(error);
     res.status(500).json({
-    status:"bad egg",
-    data: null
+      status: "bad egg",
+      data: null
     })
   }
 });
 
-// Endpoint to create a new <resource_one>
-app.post("/resourceone/", async function (req, res) {
+// Endpoint to create a new farmer
+app.post("/egg/farmers", async function (req, res) {
 });
 
 // Endpoint to update a specific <resource_one> by id
