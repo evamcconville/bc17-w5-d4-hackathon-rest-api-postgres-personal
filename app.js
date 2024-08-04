@@ -4,10 +4,10 @@ import express from "express";
 // Import your helper functions for your first resource here
 import {
   getAllFarmers,
-//   getResourceOneById,
-//   createResourceOne,
-//   updateResourceOneById,
-//   deleteResourceOneById,
+  getSingleFarmer,
+  createNewFarmer,
+  updateFarmer,
+  deleteFarmer,
 } from "./farmers.js";
 
 // Import your helper functions for your second resource here
@@ -45,8 +45,7 @@ app.get("/egg/farmers", async function (req, res) {
     res.status(200).json({
       status: "eggcellent",
       data: allFarmerData
-    }
-    )
+    })
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -59,18 +58,16 @@ app.get("/egg/farmers", async function (req, res) {
 
 // Endpoint to retrieve a farmer by id
 app.get("/egg/farmers/:id", async function (req, res) {
+  const requestedId = req.params.id;
   try {
-    const requestedId = req.params.id;
     const singleFarmerData = await getSingleFarmer(requestedId)
     res.status(200).json({
       status: "eggcellent",
-      data: singleFarmerData  
+      data: singleFarmerData
     })
-  }
-  catch (error) {
-    console.log(error);
+  } catch (error) {
     res.status(500).json({
-      status: "bad egg",
+      status: "bad egg our end",
       data: null
     })
   }
@@ -78,14 +75,66 @@ app.get("/egg/farmers/:id", async function (req, res) {
 
 // Endpoint to create a new farmer
 app.post("/egg/farmers", async function (req, res) {
+  const newFarmerBody = req.body
+  if (!newFarmerBody) {
+    res.status(400).json({
+      status: "no farmer given in body",
+      data: null
+    })
+  } try {
+    const newFarmer = await createNewFarmer(newFarmerBody)
+    const allFarmerData = await getAllFarmers()
+    res.status(200).json({
+      status: "eggcellent",
+      data: allFarmerData.slice(-1)
+    })
+  } catch (error) {
+    res.status(500).json({
+      status: "bad egg our end",
+      data: null
+    })
+  }
 });
 
 // Endpoint to update a specific <resource_one> by id
-app.patch("/resourceone/:id", async function (req, res) {
+app.patch("/egg/farmers/:id", async function (req, res) {
+  const reqPatchId = req.params.id
+  const reqBodyData = req.body
+  try {
+    const updatedFarmer = await updateFarmer(reqPatchId, reqBodyData)
+    res.status(200).json({
+      status: "eggcellent",
+      data: updatedFarmer
+    })
+  } catch (error) {
+    res.status(500).json({
+      status: "bad egg our end",
+      data: null
+    })
+  }
 });
 
 // Endpoint to delete a specific <resource_one> by id
-app.delete("/resourceone/:id", async function (req, res) {
+app.delete("/egg/farmers/:id", async function (req, res) {
+  const reqDeleteId = req.params.id
+  if (!reqDeleteId) {
+    res.status(400).json({
+      status: "no id given",
+      data: null
+    })
+  } try {
+    await deleteFarmer(reqDeleteId)
+    const allFarmerData = await getAllFarmers()
+    res.status(200).json({
+      status: "eggcellent",
+      data: allFarmerData
+    })
+  } catch (error) {
+    res.status(500).json({
+      status: "bad egg our end",
+      data: null
+    })
+  }
 });
 
 

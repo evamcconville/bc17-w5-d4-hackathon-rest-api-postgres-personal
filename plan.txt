@@ -9,35 +9,27 @@
 - check db connection 
 - create readme
 
-2. Plan and design your database schema (You should have a minimum of 2 tables that are linked with a primary and foreign key)
+2. Plan and design your database schema 
 - use chatbot to design egg theme to create ERD diagram with mermaid 
 - use bot to alter initialisation script to create database
 - use chatbot to create eggy seed data 
 
-3. Write a database initialisation script. Create a SQL script that will:
+3. Write a database initialisation script
 - transfer egg theme to database script 
 - npm run reset database 
-    a) Drop any existing tables (if they exist)
-    b) Recreate all the tables based on the schema
-    c) Populate the tables with some initial seed data
-
-5. Set up a basic Express server with a test route, logging middleware and nodemon.
-
--- rename everything
 
 4. Plan out your API routes and resources. Create your requirements tables similar to the one above.
+    -- rename everything
     i Specify end point of handlers
     ii call helper functions 
     ii1 Add response status & responses eg success, payload 
-    
-6. Implement CRUD operations using the pg package to interact with your database.
 
+Implement CRUD operations using the pg package to interact with your database.
 4a. Writing helper functions 
-    i exporting / importing the functions 
+    -- rename everything
+    i exporting / importing the function
     ii writing query text - the SQL 
     iii connecting SQL + requests code 
     iv using pool to connect to database 
     v return db result to api handler 
-
-7. Test the API using tools like Postman or Thunder Client.
 
