@@ -33,3 +33,4 @@ Implement CRUD operations using the pg package to interact with your database.
     iv using pool to connect to database 
     v return db result to api handler 
 
+🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟
